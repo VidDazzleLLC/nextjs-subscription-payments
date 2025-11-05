@@ -7,8 +7,7 @@ export default function Radar() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {    e.preventDefault();
     setLoading(true);
-    const formData = new FormData(e.target);
-    const res = await fetch('/api/checkout', { method: 'POST', body: formData });
+    const formData = new FormData(e.currentTarget);    const res = await fetch('/api/checkout', { method: 'POST', body: formData });
     if (res.redirected) window.location.href = res.url;
     setLoading(false);
   };
